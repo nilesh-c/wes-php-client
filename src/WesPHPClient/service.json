@@ -5,7 +5,7 @@
     "operations": {
         "GetRecommendation": {
             "httpMethod": "GET",
-            "uri": "/entitysuggester/suggest{/properties*}",
+            "uri": "/entitysuggester/suggest{/properties*}?type={type}",
             "summary": "Gets a recommendation for an anonymous item",
             "parameters": {
                 "properties": {
@@ -15,8 +15,14 @@
                     "type": "array",
                     "items": {
                         "description": "A value describing the strength of the observed association.",
-                        "type": "numeric"
+                        "type": "string"
                     }
+                },
+                "type": {
+                    "location": "uri",
+                    "description": "Type of recommendation - property or value.",
+                    "required": true,
+                    "type": "string"
                 },
                 "howMany": {
                     "location": "query",

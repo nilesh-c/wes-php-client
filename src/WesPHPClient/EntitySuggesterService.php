@@ -5,8 +5,8 @@ namespace WesPHPClient;
 /**
  * EntitySuggesterService helps you leverage the Entity Suggester REST api
  */
-class EntitySuggesterService
-{
+class EntitySuggesterService {
+
     /**
      * @var MyrrixClient
      */
@@ -18,14 +18,13 @@ class EntitySuggesterService
      * @param string $username The username
      * @param string $password The password
      */
-    function __construct($host, $port, $username = null, $password = null)
-    {
+    function __construct($host, $port, $username = null, $password = null) {
         $this->client = MyrrixClient::factory(array(
-            'hostname' => $host,
-            'port'     => $port,
-            'username' => $username,
-            'password' => $password,
-        ));
+                    'hostname' => $host,
+                    'port' => $port,
+                    'username' => $username,
+                    'password' => $password,
+                ));
     }
 
     /**
@@ -36,12 +35,12 @@ class EntitySuggesterService
      *
      * @return array
      */
-    public function getRecommendation(array $properties = array(), $count = null)
-    {
+    public function getRecommendation(array $properties = array(), $type = "property", $count = null) {
         $command = $this->client->getCommand('GetRecommendation', array(
-            'properties'  => $properties,
-            'howMany'      => $count,
-        ));
+            'properties' => $properties,
+            'type'=>$type,
+            'howMany' => $count,
+                ));
 
         return $this->client->execute($command)->json();
     }
@@ -53,36 +52,31 @@ class EntitySuggesterService
      *
      * @return bool
      */
-    public function ingest(array $properties)
-    {
+    public function ingest(array $properties) {
         $command = $this->client->getCommand('Ingest', array(
             'data' => $properties,
-        ));
+                ));
 
         return $this->client->execute($command)->isSuccessful();
     }
-
 
     /**
      * Asks Myrrix to refresh, may take time.
      *
      * @return bool
      */
-    public function refresh()
-    {
+    public function refresh() {
         $command = $this->client->getCommand('Refresh');
 
         return $this->client->execute($command)->isSuccessful();
     }
-
 
     /**
      * Asks if Myrrix is ready to answer requests.
      *
      * @return bool
      */
-    public function isReady()
-    {
+    public function isReady() {
         $command = $this->client->getCommand('Ready');
 
         return $this->client->execute($command)->isSuccessful();
@@ -91,8 +85,8 @@ class EntitySuggesterService
     /**
      * @return MyrrixClient
      */
-    public function getClient()
-    {
+    public function getClient() {
         return $this->client;
     }
+
 }
