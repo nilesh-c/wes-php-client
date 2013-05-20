@@ -1,6 +1,6 @@
 <?php
 
-namespace BCC\Myrrix;
+namespace WesPHPClient;
 
 use Guzzle\Parser\UriTemplate\UriTemplateInterface;
 
@@ -21,17 +21,9 @@ class MyrrixUriTemplate implements UriTemplateInterface
 
     public function expand($template, array $variables)
     {
-        if ($template == '/recommendToAnonymous{/preferences*}') {
-            $result = '/recommendToAnonymous';
-            foreach ($variables['preferences'] as $key => $variable) {
-                $result .= sprintf('/%d=%f', $key, $variable);
-            }
-            return $result;
-        }
-
-        if ($template == '/estimateForAnonymous/{itemID}{/preferences*}') {
-            $result = '/estimateForAnonymous/'.$variables['itemID'];
-            foreach ($variables['preferences'] as $key => $variable) {
+        if ($template == '/entitysuggester/suggest{/properties*}') {
+            $result = '/entitysuggester/suggest';
+            foreach ($variables['properties'] as $key => $variable) {
                 $result .= sprintf('/%d=%f', $key, $variable);
             }
             return $result;

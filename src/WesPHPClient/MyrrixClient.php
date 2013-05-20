@@ -1,6 +1,6 @@
 <?php
 
-namespace BCC\Myrrix;
+namespace WesPHPClient;
 
 use Guzzle\Service\Client;
 use Guzzle\Common\Collection;
