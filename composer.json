@@ -5,6 +5,8 @@
     "keywords": ["wikidata", "entity-suggester", "myrrix", "recommendation"],
     "homepage": "https://github.com/nilesh-c/wes-php-client",
     "license": "MIT",
+    "stability": "dev",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-0": { "WesPHPClient": "src/" }
     },
