@@ -1,6 +1,6 @@
 # Wikidata Entity Suggester PHP Client
 
-This is the PHP client for the [Wikidata Entity Suggester](https://github.com/nilesh-c/wikidata-entity-suggester). This uses the Entity Suggester's REST API to push data and get suggestions.
+This is the PHP client for the [Wikidata Entity Suggester](https://github.com/nilesh-c/wikidata-entity-suggester). It uses the Entity Suggester's REST API to push data and get suggestions.
 
 ## Installation via Composer
 
