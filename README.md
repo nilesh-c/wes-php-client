@@ -37,12 +37,15 @@ composer install
 ## Usage
 
 ``` php
+// Always include this file to use the client
+require_once("vendor/autoload.php");
+
 // Instanciate the Myrrix/Entity Suggester service
 $wes = new EntitySuggesterService('localhost', 8080);
 
 // Push the data in the file /path/data.csv into the Entity Suggester.
 // Please check [this page](https://github.com/nilesh-c/wikidata-entity-suggester/wiki/CSV-file-explanation) for info on how the data should be structured in the CSV file.
-$wes->ingest("/path/data.csv");
+$wes->ingestFile("/path/data.csv");
 
 // Refresh the index (add newly added data into the model)
 $wes->refresh();
