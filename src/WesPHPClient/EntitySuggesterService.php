@@ -61,6 +61,34 @@ class EntitySuggesterService {
     }
 
     /**
+     * Sets a list of item-property or item-property+value pairs from a CSV file
+     *
+     * @param string $fileName The path/filename of the csv file with <item>,<property/value>,<strength value> entries
+     *
+     * @return bool
+     */
+    public function ingestFile(string $fileName) {
+        $f = fopen($fileName, "r");
+        $ingestFeed = array();
+        if($f === false)
+            throw new Exception("Sorry, cannot open file $fileName");
+        while(!feof($f)) {
+            $prefs = trim(fgets($f));
+            if(empty($prefs)) {
+                continue;
+            } else {
+                $prefs = explode(",", $prefs);
+            }
+            $ingestFeed[] = array(
+                                'userID'=>$prefs[0],
+                                'itemID'=>$prefs[1],
+                                'value'=>$prefs[2]
+                                );
+        }
+        return $this->ingest($ingestFeed);
+    }
+
+    /**
      * Asks Myrrix to refresh, may take time.
      *
      * @return bool
