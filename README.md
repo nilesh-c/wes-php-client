@@ -76,4 +76,4 @@ $recommendation = $myrrix->getRecommendation(array(
 
 ```
 
-See [wesTest.php](wesTest.php) for a crude example/demo. It is temporarily deployed [here](173.0.50.123/wesTest.php).
+See [wesTest.php](wesTest.php) for a crude example/demo. It is temporarily deployed [here](http://173.0.50.123/wesTest.php).
