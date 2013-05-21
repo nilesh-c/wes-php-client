@@ -29,7 +29,7 @@ if (!isset($_POST['data'])) {
     <?php
     exit;
 }
-$wes = new EntitySuggesterService('192.168.0.100', 8080);
+$wes = new EntitySuggesterService('127.0.0.1', 8080);
 $type = isset($_POST['t']) ? $_POST['t'] : "property";
 if (trim($_POST['data']) == '')
     die("You must provide some data.");
